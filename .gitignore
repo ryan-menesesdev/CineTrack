@@ -1,0 +1,40 @@
+# Xcode generated files
+*.pbxuser
+!*.pbxuser/
+*.mode1v3
+!*.mode1v3/
+*.perspectivev3
+!*.perspectivev3/
+xcuserdata
+*.xccheckout
+*.moved-aside
+
+*.hmap
+*.ipa
+*.xcuserstate
+
+# Swift Package Manager
+.swiftpm/xcode/xcshareddata/xcschemes/
+
+# Code coverage files
+*.gcda
+*.profdata
+
+# Build products
+build/
+Build/
+Products/
+
+# Other files
+*.DS_Store
+*.log
+*.swp
+.idea/
+.vscode/
+.DS_Store
+*.bak
+*.orig
+*.tmp
+*.moved-aside
+
+.localized

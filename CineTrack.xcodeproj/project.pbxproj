@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F388E5D52E8C3D1300717E74 /* APIConnector in Frameworks */ = {isa = PBXBuildFile; productRef = F388E5D42E8C3D1300717E74 /* APIConnector */; };
+		F3C53C152E8AF90600DE014C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3C53C142E8AF90600DE014C /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F3D78ABB2E82DBBF00AED3D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,14 +29,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F388E5D22E8C3D0300717E74 /* APIConnector */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = APIConnector; path = ../APIConnector; sourceTree = SOURCE_ROOT; };
 		F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D78ABA2E82DBBF00AED3D3 /* CineTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D78AC42E82DBBF00AED3D3 /* CineTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/AutoScrollingCarousel.swift,
+				Views/CarouselItemView.swift,
+				Views/ContentDetailView.swift,
+				Views/ContentListItemView.swift,
+				Views/ContentSectionView.swift,
+				Views/FavoritesView.swift,
+				Views/HeaderView.swift,
+				Views/SearchBarView.swift,
+			);
+			target = F3D78AB92E82DBBF00AED3D3 /* CineTrackTests */;
+		};
+		F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/AutoScrollingCarousel.swift,
+				Views/CarouselItemView.swift,
+				Views/ContentDetailView.swift,
+				Views/ContentListItemView.swift,
+				Views/ContentSectionView.swift,
+				Views/FavoritesView.swift,
+				Views/HeaderView.swift,
+				Views/SearchBarView.swift,
+			);
+			target = F3D78AC32E82DBBF00AED3D3 /* CineTrackUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F3D78AAD2E82DBBB00AED3D3 /* CineTrack */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */,
+				F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */,
+			);
 			path = CineTrack;
 			sourceTree = "<group>";
 		};
@@ -52,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C53C152E8AF90600DE014C /* Kingfisher in Frameworks */,
+				F388E5D52E8C3D1300717E74 /* APIConnector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +115,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F388E5D32E8C3D1300717E74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3D78AA22E82DBBB00AED3D3 = {
 			isa = PBXGroup;
 			children = (
+				F388E5D22E8C3D0300717E74 /* APIConnector */,
 				F3D78AAD2E82DBBB00AED3D3 /* CineTrack */,
 				F3D78ABD2E82DBBF00AED3D3 /* CineTrackTests */,
 				F3D78AC72E82DBBF00AED3D3 /* CineTrackUITests */,
+				F388E5D32E8C3D1300717E74 /* Frameworks */,
 				F3D78AAC2E82DBBB00AED3D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +164,8 @@
 			);
 			name = CineTrack;
 			packageProductDependencies = (
+				F3C53C142E8AF90600DE014C /* Kingfisher */,
+				F388E5D42E8C3D1300717E74 /* APIConnector */,
 			);
 			productName = CineTrack;
 			productReference = F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */;
@@ -195,6 +249,9 @@
 			);
 			mainGroup = F3D78AA22E82DBBB00AED3D3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F3C53C132E8AF90600DE014C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3D78AAC2E82DBBB00AED3D3 /* Products */;
 			projectDirPath = "";
@@ -572,6 +629,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3C53C132E8AF90600DE014C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F388E5D42E8C3D1300717E74 /* APIConnector */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = APIConnector;
+		};
+		F3C53C142E8AF90600DE014C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3C53C132E8AF90600DE014C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3D78AA32E82DBBB00AED3D3 /* Project object */;
 }

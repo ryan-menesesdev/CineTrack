@@ -24,6 +24,7 @@ struct SearchItem: Decodable {
 
     func toProduction() -> Production {
         return Production(
+            id: imdbID,
             title: title,
             year: year,
             favorite: false,

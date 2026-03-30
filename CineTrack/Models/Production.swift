@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 
 struct Production: Decodable {
+    var id: String
     var title: String
     var year: String
     var favorite: Bool
@@ -19,6 +20,7 @@ struct Production: Decodable {
     var type: String
     
     enum CodingKeys: String, CodingKey {
+        case id = "imdbID"
         case title = "Title"
         case year = "Year"
         case released = "Released"
@@ -35,7 +37,8 @@ struct Production: Decodable {
         case type = "Type"
     }
     
-    init(title: String, year: String, favorite: Bool, released: String, runtime: String, genre: String, director: String?, writer: String?, actors: String, plot: String, language: String, country: String, poster: String, ratings: [Rating], type: String) {
+    init(id: String, title: String, year: String, favorite: Bool, released: String, runtime: String, genre: String, director: String?, writer: String?, actors: String, plot: String, language: String, country: String, poster: String, ratings: [Rating], type: String) {
+        self.id = id
         self.title = title
         self.year = year
         self.favorite = favorite
@@ -55,6 +58,7 @@ struct Production: Decodable {
     
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
         self.title = try container.decode(String.self, forKey: .title)
         self.year = try container.decode(String.self, forKey: .year)
         self.favorite = false

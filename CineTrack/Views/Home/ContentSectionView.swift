@@ -40,6 +40,7 @@ struct ContentSectionView: View {
         label: "Example String 01",
         productions: [
             Production(
+                id: "",
                 title: "Banana",
                 year: "2010",
                 favorite: false,
@@ -57,6 +58,7 @@ struct ContentSectionView: View {
                 type: "movie"
             ),
              Production(
+                id: "",
                 title: "Banana",
                 year: "2010",
                 favorite: false,
@@ -74,6 +76,7 @@ struct ContentSectionView: View {
                 type: "movie"
             ),
             Production(
+               id: "",
                title: "Banana",
                year: "2010",
                favorite: false,
@@ -91,6 +94,7 @@ struct ContentSectionView: View {
                type: "movie"
            ),
             Production(
+               id: "",
                title: "Banana",
                year: "2010",
                favorite: false,

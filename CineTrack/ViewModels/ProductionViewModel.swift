@@ -10,12 +10,14 @@ import Observation
 
 @Observable
 class ProductionViewModel {
-    let fetcher = FetchService()
-    var productions: [Production]?
+    private let fetcher = FetchService()
+    var featuredProductions: [Production]?
+    var searchResults: [Production]?
+    var selectedProduction: Production?
     
     func fetchProductionById(_ id: String) async {
         do {
-            productions = [try await fetcher.decodeProduction(title: id)]
+            selectedProduction = try await fetcher.decodeProductionById(id)
         } catch {
             switch error {
             case let fetchError as FetchError:
@@ -23,12 +25,14 @@ class ProductionViewModel {
             default:
                 print("An unexpected error has occurred: \(error.localizedDescription).")
             }
+            
+            selectedProduction = nil
         }
     }
     
     func fetchProduction(title: String) async {
         do {
-            productions = [try await fetcher.decodeProduction(title: title)]
+            selectedProduction = try await fetcher.decodeProduction(title: title)
         } catch {
             switch error {
             case let fetchError as FetchError:
@@ -39,9 +43,9 @@ class ProductionViewModel {
         }
     }
     
-    func fetchProductionList(searchTerm: String) async {
+    func fetchFeaturedProductions() async {
         do {
-            productions = try await fetcher.decodeProductionList(searchTerm: searchTerm)
+            featuredProductions = try await fetcher.decodeProductionList(searchTerm: "pokemon") // adjust term as needed
         } catch {
             switch error {
             case let fetchError as FetchError:
@@ -49,6 +53,23 @@ class ProductionViewModel {
             default:
                 print("An unexpected error has occurred: \(error.localizedDescription).")
             }
+            
+            featuredProductions = featuredProductions ?? []
+        }
+    }
+    
+    func fetchSearchResults(searchTerm: String) async {
+        do {
+            searchResults = try await fetcher.decodeProductionList(searchTerm: searchTerm)
+        } catch {
+            switch error {
+            case let fetchError as FetchError:
+                print(fetchError.message)
+            default:
+                print("An unexpected error has occurred: \(error.localizedDescription).")
+            }
+            
+            searchResults = []
         }
     }
     

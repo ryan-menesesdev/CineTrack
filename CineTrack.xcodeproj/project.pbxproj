@@ -39,28 +39,26 @@
 		F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Views/AutoScrollingCarousel.swift,
-				Views/CarouselItemView.swift,
-				Views/ContentDetailView.swift,
-				Views/ContentListItemView.swift,
-				Views/ContentSectionView.swift,
-				Views/FavoritesView.swift,
-				Views/HeaderView.swift,
-				Views/SearchBarView.swift,
+				Views/Favorites/FavoritesView.swift,
+				Views/Home/AutoScrollingCarousel.swift,
+				Views/Home/CarouselItemView.swift,
+				Views/Home/ContentListItemView.swift,
+				Views/Home/ContentSectionView.swift,
+				Views/Search/ContentDetailView.swift,
+				Views/Search/SearchBarView.swift,
 			);
 			target = F3D78AB92E82DBBF00AED3D3 /* CineTrackTests */;
 		};
 		F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Views/AutoScrollingCarousel.swift,
-				Views/CarouselItemView.swift,
-				Views/ContentDetailView.swift,
-				Views/ContentListItemView.swift,
-				Views/ContentSectionView.swift,
-				Views/FavoritesView.swift,
-				Views/HeaderView.swift,
-				Views/SearchBarView.swift,
+				Views/Favorites/FavoritesView.swift,
+				Views/Home/AutoScrollingCarousel.swift,
+				Views/Home/CarouselItemView.swift,
+				Views/Home/ContentListItemView.swift,
+				Views/Home/ContentSectionView.swift,
+				Views/Search/ContentDetailView.swift,
+				Views/Search/SearchBarView.swift,
 			);
 			target = F3D78AC32E82DBBF00AED3D3 /* CineTrackUITests */;
 		};

@@ -1,5 +1,5 @@
 //
-//  ContentListView.swift
+//  CarouselItemView.swift
 //  CineTrack
 //
 //  Created by Ryan Davi Oliveira de Meneses on 19/03/26.
@@ -7,29 +7,34 @@
 
 import SwiftUI
 
-struct ContentListItemView: View {
-    
+struct CarouselItemView: View {
     let production: Production
-    
+
     var body: some View {
-        Rectangle()
-            .overlay(content: {
-                AsyncImage(url: URL(string: production.poster)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } placeholder: {
-                    Color.gray
+            ZStack(alignment: .bottomLeading) {
+                ImageLoader(url: production.poster)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 320)
+                    .background(Color.black)
+                
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(production.title)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .lineLimit(2)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.black.opacity(0.45))
                 }
-            })
-            .frame(width: 120, height: 180)
-            .foregroundColor(.gray)
-    }
+                .padding(12)
+            }
+            .cornerRadius(8)
+        }
 }
 
 #Preview {
-    ContentListItemView(production: Production(
+    CarouselItemView(production: Production(
+        id: "",
         title: "Banana",
         year: "2010",
         favorite: false,

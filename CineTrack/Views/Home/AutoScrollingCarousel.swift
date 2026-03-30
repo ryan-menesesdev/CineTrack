@@ -20,7 +20,8 @@ struct AutoScrollingCarousel: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(height: 400)
+            .scaledToFit()
+            .frame(width: .infinity, height: .infinity)
             .onAppear {
                 if !productions.isEmpty {
                     currentPage = min(currentPage, productions.count - 1)
@@ -41,6 +42,7 @@ struct AutoScrollingCarousel: View {
 #Preview {
     AutoScrollingCarousel(productions: [
         Production(
+            id: "",
             title: "Banana",
             year: "2010",
             favorite: false,
@@ -58,6 +60,7 @@ struct AutoScrollingCarousel: View {
             type: "movie"
         ),
         Production(
+            id: "",
             title: "Another",
             year: "2012",
             favorite: false,

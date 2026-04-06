@@ -1,10 +1,8 @@
 import SwiftUI
 import SwiftData
 
-
 struct ContentView: View {
     @State private var selection = 0
-    @Environment(\.modelContext) private var modelContext
     let productionViewModel = ProductionViewModel()
 
     var body: some View {
@@ -20,7 +18,7 @@ struct ContentView: View {
                 .tabItem { Label("Search", systemImage: "magnifyingglass") }
 
             VStack {
-                FavoritesView()
+                FavoritesView(vm: productionViewModel)
             }
                 .tabItem { Label("Favorites", systemImage: "heart") }
         }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F388E5D52E8C3D1300717E74 /* APIConnector in Frameworks */ = {isa = PBXBuildFile; productRef = F388E5D42E8C3D1300717E74 /* APIConnector */; };
+		F32C5FC42F7EDF0E00918BC9 /* NetworkComponent in Frameworks */ = {isa = PBXBuildFile; productRef = F32C5FC32F7EDF0E00918BC9 /* NetworkComponent */; };
 		F3C53C152E8AF90600DE014C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3C53C142E8AF90600DE014C /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F388E5D22E8C3D0300717E74 /* APIConnector */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = APIConnector; path = ../APIConnector; sourceTree = SOURCE_ROOT; };
 		F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D78ABA2E82DBBF00AED3D3 /* CineTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D78AC42E82DBBF00AED3D3 /* CineTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +38,8 @@
 		F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Entities/RatingEntity.swift,
+				Models/Entities/StoredProductionEntity.swift,
 				Views/Favorites/FavoritesView.swift,
 				Views/Home/AutoScrollingCarousel.swift,
 				Views/Home/CarouselItemView.swift,
@@ -52,6 +53,8 @@
 		F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Entities/RatingEntity.swift,
+				Models/Entities/StoredProductionEntity.swift,
 				Views/Favorites/FavoritesView.swift,
 				Views/Home/AutoScrollingCarousel.swift,
 				Views/Home/CarouselItemView.swift,
@@ -92,7 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C53C152E8AF90600DE014C /* Kingfisher in Frameworks */,
-				F388E5D52E8C3D1300717E74 /* APIConnector in Frameworks */,
+				F32C5FC42F7EDF0E00918BC9 /* NetworkComponent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,21 +116,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F388E5D32E8C3D1300717E74 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F3D78AA22E82DBBB00AED3D3 = {
 			isa = PBXGroup;
 			children = (
-				F388E5D22E8C3D0300717E74 /* APIConnector */,
 				F3D78AAD2E82DBBB00AED3D3 /* CineTrack */,
 				F3D78ABD2E82DBBF00AED3D3 /* CineTrackTests */,
 				F3D78AC72E82DBBF00AED3D3 /* CineTrackUITests */,
-				F388E5D32E8C3D1300717E74 /* Frameworks */,
 				F3D78AAC2E82DBBB00AED3D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,7 +157,7 @@
 			name = CineTrack;
 			packageProductDependencies = (
 				F3C53C142E8AF90600DE014C /* Kingfisher */,
-				F388E5D42E8C3D1300717E74 /* APIConnector */,
+				F32C5FC32F7EDF0E00918BC9 /* NetworkComponent */,
 			);
 			productName = CineTrack;
 			productReference = F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */;
@@ -249,6 +243,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F3C53C132E8AF90600DE014C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F3B389292F7AE8D30026E028 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				F32C5FC22F7EDF0E00918BC9 /* XCLocalSwiftPackageReference "Components/NetworkComponent" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3D78AAC2E82DBBB00AED3D3 /* Products */;
@@ -628,7 +624,22 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		F32C5FC22F7EDF0E00918BC9 /* XCLocalSwiftPackageReference "Components/NetworkComponent" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Components/NetworkComponent;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
+		F3B389292F7AE8D30026E028 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.63.2;
+			};
+		};
 		F3C53C132E8AF90600DE014C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -640,9 +651,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F388E5D42E8C3D1300717E74 /* APIConnector */ = {
+		F32C5FC32F7EDF0E00918BC9 /* NetworkComponent */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = APIConnector;
+			productName = NetworkComponent;
 		};
 		F3C53C142E8AF90600DE014C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

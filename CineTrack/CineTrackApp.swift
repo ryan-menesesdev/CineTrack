@@ -5,7 +5,8 @@ import SwiftData
 struct CineTrackApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            
+            StoredProductionEntity.self,
+            RatingEntity.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

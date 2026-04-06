@@ -10,7 +10,11 @@ import SwiftUI
 struct ContentDetailView: View {
     let vm: ProductionViewModel
     let productionId: String
-    @State var isLiked = false
+    let preloadedProduction: Production?
+    
+    @StateObject private var detailVm = ContentDetailViewModel()
+    
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         ScrollView {
@@ -31,11 +35,11 @@ struct ContentDetailView: View {
                         Spacer()
                         
                         Button {
-                            isLiked.toggle()
+                            detailVm.toggleFavorite(detail, in: modelContext)
                         } label: {
-                            Image(systemName: isLiked ? "heart.fill" : "heart")
+                            Image(systemName: detailVm.isLiked ? "heart.fill" : "heart")
                                 .resizable()
-                                .foregroundStyle(isLiked ? Color(.red) : Color(.white))
+                                .foregroundStyle(detailVm.isLiked ? Color.red : Color.white)
                                 .frame(width: 35, height: 30)
                         }
                     }
@@ -64,11 +68,18 @@ struct ContentDetailView: View {
         .foregroundStyle(.white)
         .background(Color(.black))
         .task {
-            await vm.fetchProductionById(productionId)
+            if let preloaded = preloadedProduction {
+                vm.selectedProduction = preloaded
+            } else {
+                await vm.fetchProductionById(productionId)
+            }
+            if let detail = vm.selectedProduction {
+                detailVm.setInitialLikeState(for: detail, in: modelContext)
+            }
         }
     }
 }
 
 #Preview {
-    ContentDetailView(vm: ProductionViewModel(), productionId: "tt8515016")
+    ContentDetailView(vm: ProductionViewModel(), productionId: "tt8515016", preloadedProduction: nil)
 }

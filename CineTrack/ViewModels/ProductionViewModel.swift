@@ -7,69 +7,51 @@
 
 import Foundation
 import Observation
+import NetworkComponent
 
 @Observable
 class ProductionViewModel {
-    private let fetcher = FetchService()
+    private let repository: ProductionRepositoryProtocol
     var featuredProductions: [Production]?
     var searchResults: [Production]?
     var selectedProduction: Production?
     
-    func fetchProductionById(_ id: String) async {
-        do {
-            selectedProduction = try await fetcher.decodeProductionById(id)
-        } catch {
-            switch error {
-            case let fetchError as FetchError:
-                print(fetchError.message)
-            default:
-                print("An unexpected error has occurred: \(error.localizedDescription).")
-            }
-            
-            selectedProduction = nil
-        }
+    init(repository: ProductionRepositoryProtocol = ProductionRepository()) {
+        self.repository = repository
     }
     
-    func fetchProduction(title: String) async {
+    func fetchProductionById(_ id: String) async {
         do {
-            selectedProduction = try await fetcher.decodeProduction(title: title)
-        } catch {
-            switch error {
-            case let fetchError as FetchError:
-                print(fetchError.message)
-            default:
-                print("An unexpected error has occurred: \(error.localizedDescription).")
-            }
+            selectedProduction = try await repository.fetchById(id)
+        }
+        catch {
+            handle(error); selectedProduction = nil
         }
     }
     
     func fetchFeaturedProductions() async {
         do {
-            featuredProductions = try await fetcher.decodeProductionList(searchTerm: "pokemon") // adjust term as needed
-        } catch {
-            switch error {
-            case let fetchError as FetchError:
-                print(fetchError.message)
-            default:
-                print("An unexpected error has occurred: \(error.localizedDescription).")
-            }
-            
-            featuredProductions = featuredProductions ?? []
+            featuredProductions = try await repository.fetchList(searchTerm: "pokemon")
+        }
+        catch {
+            handle(error); featuredProductions = featuredProductions ?? []
         }
     }
     
     func fetchSearchResults(searchTerm: String) async {
         do {
-            searchResults = try await fetcher.decodeProductionList(searchTerm: searchTerm)
-        } catch {
-            switch error {
-            case let fetchError as FetchError:
-                print(fetchError.message)
-            default:
-                print("An unexpected error has occurred: \(error.localizedDescription).")
-            }
-            
-            searchResults = []
+            searchResults = try await repository.fetchList(searchTerm: searchTerm)
+        }
+        catch {
+            handle(error); searchResults = []
+        }
+    }
+
+    private func handle(_ error: Error) {
+        if let fetchError = error as? FetchError {
+            print(fetchError.message)
+        } else {
+            print("Unexpected error: \(error.localizedDescription)")
         }
     }
     

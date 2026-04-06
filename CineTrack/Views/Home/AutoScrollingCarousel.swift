@@ -21,7 +21,7 @@ struct AutoScrollingCarousel: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .scaledToFit()
-            .frame(width: .infinity, height: .infinity)
+            .frame(height: 300)
             .onAppear {
                 if !productions.isEmpty {
                     currentPage = min(currentPage, productions.count - 1)

@@ -1,7 +1,6 @@
 import Foundation
-import SwiftData
 
-struct Production: Decodable {
+public struct Production: Decodable {
     var id: String
     var title: String
     var year: String
@@ -56,7 +55,7 @@ struct Production: Decodable {
         self.type = type
     }
     
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? ""
         self.title = try container.decode(String.self, forKey: .title)

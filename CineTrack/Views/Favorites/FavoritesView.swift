@@ -6,36 +6,49 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FavoritesView: View {
-    @Environment(\.dismiss) private var dismiss
-    var liked: [Production] = []
-
+    @Query(sort: \StoredProductionEntity.title) private var favorites: [StoredProductionEntity]
+    
+    let vm: ProductionViewModel
+    
     var body: some View {
-        NavigationView {
-            List {
-                if liked.isEmpty {
-                    VStack(alignment: .center, spacing: 8) {
-                        Text("No favorites yet")
-                            .foregroundColor(.secondary)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        NavigationStack {
+            ScrollView {
+                if favorites.isEmpty {
+                    ContentUnavailableView("No Favorites",
+                                           systemImage: "heart",
+                                           description: Text("Your favorite productions will appear here."))
+                    .foregroundStyle(.white)
                 } else {
-                    ForEach(liked.indices, id: \.self) { idx in
-                        ContentListItemView(production: liked[idx])
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 16) {
+                        ForEach(favorites) { favorite in
+                            NavigationLink {
+                                ContentDetailView(vm: vm, productionId: favorite.id, preloadedProduction: favorite.toProduction())
+                            } label: {
+                                VStack {
+                                    ImageLoader(url: favorite.poster)
+                                        .aspectRatio(2/3, contentMode: .fit)
+                                        .cornerRadius(8)
+                                    Text(favorite.title)
+                                        .font(.caption)
+                                        .lineLimit(1)
+                                }
+                            }
+                        }
                     }
+                    .padding()
                 }
             }
             .navigationTitle("Favorites")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") { dismiss() }
-                }
-            }
+            .frame(maxWidth: .infinity)
+            .foregroundStyle(.white)
+            .background(Color.black)
         }
     }
 }
 
 #Preview {
-    FavoritesView(liked: [])
+    FavoritesView(vm: ProductionViewModel())
 }

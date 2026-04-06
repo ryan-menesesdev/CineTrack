@@ -1,6 +1,4 @@
-import SwiftData
-
-struct Rating: Decodable {
+public struct Rating: Decodable {
     var source: String
     var value: String
     
@@ -14,7 +12,7 @@ struct Rating: Decodable {
         self.value = value
     }
     
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.source = try container.decode(String.self, forKey: .source)
         self.value = try container.decode(String.self, forKey: .value)

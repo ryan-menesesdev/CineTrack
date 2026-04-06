@@ -31,7 +31,7 @@ struct SearchView: View {
                                 VStack(spacing: 12) {
                                     ForEach(productions, id: \.id) { p in
                                         NavigationLink {
-                                            ContentDetailView(vm: vm, productionId: p.id)
+                                            ContentDetailView(vm: vm, productionId: p.id, preloadedProduction: nil)
                                         } label: {
                                             HStack(spacing: 16) {
                                                 ImageLoader(url: p.poster)

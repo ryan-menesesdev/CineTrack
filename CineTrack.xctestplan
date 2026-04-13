@@ -1,0 +1,50 @@
+{
+  "configurations" : [
+    {
+      "id" : "56DE5C38-FA0B-4336-81CB-2D0BA6826745",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "",
+        "enabled" : false
+      }
+    ],
+    "environmentVariableEntries" : [
+      {
+        "key" : "OMDB_API_KEY",
+        "value" : "e9be8e08"
+      }
+    ],
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CineTrack.xcodeproj",
+      "identifier" : "F3D78AAA2E82DBBB00AED3D3",
+      "name" : "CineTrack"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CineTrack.xcodeproj",
+        "identifier" : "F3D78AB92E82DBBF00AED3D3",
+        "name" : "CineTrackTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CineTrack.xcodeproj",
+        "identifier" : "F3D78AC32E82DBBF00AED3D3",
+        "name" : "CineTrackUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

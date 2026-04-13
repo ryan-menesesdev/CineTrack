@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentDetailView: View {
     let vm: ProductionViewModel
-    let productionId: String
+    let productionId: String?
     let preloadedProduction: Production?
     
     @StateObject private var detailVm = ContentDetailViewModel()
@@ -71,8 +71,9 @@ struct ContentDetailView: View {
             if let preloaded = preloadedProduction {
                 vm.selectedProduction = preloaded
             } else {
-                await vm.fetchProductionById(productionId)
+                await vm.fetchProductionById(productionId ?? "")
             }
+            
             if let detail = vm.selectedProduction {
                 detailVm.setInitialLikeState(for: detail, in: modelContext)
             }

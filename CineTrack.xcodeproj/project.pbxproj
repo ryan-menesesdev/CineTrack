@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F32C5FC42F7EDF0E00918BC9 /* NetworkComponent in Frameworks */ = {isa = PBXBuildFile; productRef = F32C5FC32F7EDF0E00918BC9 /* NetworkComponent */; };
+		F36A22472F8D0C240021817F /* NetworkComponent in Frameworks */ = {isa = PBXBuildFile; productRef = F36A22462F8D0C240021817F /* NetworkComponent */; };
 		F3C53C152E8AF90600DE014C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F3C53C142E8AF90600DE014C /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -19,27 +20,31 @@
 			remoteGlobalIDString = F3D78AAA2E82DBBB00AED3D3;
 			remoteInfo = CineTrack;
 		};
-		F3D78AC52E82DBBF00AED3D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F3D78AA32E82DBBB00AED3D3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F3D78AAA2E82DBBB00AED3D3;
-			remoteInfo = CineTrack;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F36A22532F8D37120021817F /* CineTrack.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = CineTrack.xctestplan; sourceTree = "<group>"; };
 		F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D78ABA2E82DBBF00AED3D3 /* CineTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3D78AC42E82DBBF00AED3D3 /* CineTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Constants/FetchConstants.swift,
 				Models/Entities/RatingEntity.swift,
 				Models/Entities/StoredProductionEntity.swift,
+				Models/Production.swift,
+				Models/Rating.swift,
+				Models/SearchItem.swift,
+				Repositories/Favorites/FavoritesRepository.swift,
+				Repositories/Production/ProductionRepository.swift,
+				Repositories/Production/ProductionRepositoryProtocol.swift,
+				Utils/ImageLoader.swift,
+				Utils/KFImageLoader.swift,
+				ViewModels/ContentDetailViewModel.swift,
+				ViewModels/ProductionViewModel.swift,
 				Views/Favorites/FavoritesView.swift,
 				Views/Home/AutoScrollingCarousel.swift,
 				Views/Home/CarouselItemView.swift,
@@ -50,21 +55,6 @@
 			);
 			target = F3D78AB92E82DBBF00AED3D3 /* CineTrackTests */;
 		};
-		F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Models/Entities/RatingEntity.swift,
-				Models/Entities/StoredProductionEntity.swift,
-				Views/Favorites/FavoritesView.swift,
-				Views/Home/AutoScrollingCarousel.swift,
-				Views/Home/CarouselItemView.swift,
-				Views/Home/ContentListItemView.swift,
-				Views/Home/ContentSectionView.swift,
-				Views/Search/ContentDetailView.swift,
-				Views/Search/SearchBarView.swift,
-			);
-			target = F3D78AC32E82DBBF00AED3D3 /* CineTrackUITests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -72,7 +62,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				F32742F12F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackTests" target */,
-				F32742F22F6C4057003D6011 /* Exceptions for "CineTrack" folder in "CineTrackUITests" target */,
 			);
 			path = CineTrack;
 			sourceTree = "<group>";
@@ -80,11 +69,6 @@
 		F3D78ABD2E82DBBF00AED3D3 /* CineTrackTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CineTrackTests;
-			sourceTree = "<group>";
-		};
-		F3D78AC72E82DBBF00AED3D3 /* CineTrackUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CineTrackUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -103,25 +87,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3D78AC12E82DBBF00AED3D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F36A22472F8D0C240021817F /* NetworkComponent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F36A22452F8D0C240021817F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3D78AA22E82DBBB00AED3D3 = {
 			isa = PBXGroup;
 			children = (
+				F36A22532F8D37120021817F /* CineTrack.xctestplan */,
 				F3D78AAD2E82DBBB00AED3D3 /* CineTrack */,
 				F3D78ABD2E82DBBF00AED3D3 /* CineTrackTests */,
-				F3D78AC72E82DBBF00AED3D3 /* CineTrackUITests */,
+				F36A22452F8D0C240021817F /* Frameworks */,
 				F3D78AAC2E82DBBB00AED3D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +117,6 @@
 			children = (
 				F3D78AAB2E82DBBB00AED3D3 /* CineTrack.app */,
 				F3D78ABA2E82DBBF00AED3D3 /* CineTrackTests.xctest */,
-				F3D78AC42E82DBBF00AED3D3 /* CineTrackUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,33 +166,11 @@
 			);
 			name = CineTrackTests;
 			packageProductDependencies = (
+				F36A22462F8D0C240021817F /* NetworkComponent */,
 			);
 			productName = CineTrackTests;
 			productReference = F3D78ABA2E82DBBF00AED3D3 /* CineTrackTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F3D78AC32E82DBBF00AED3D3 /* CineTrackUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F3D78AD42E82DBBF00AED3D3 /* Build configuration list for PBXNativeTarget "CineTrackUITests" */;
-			buildPhases = (
-				F3D78AC02E82DBBF00AED3D3 /* Sources */,
-				F3D78AC12E82DBBF00AED3D3 /* Frameworks */,
-				F3D78AC22E82DBBF00AED3D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F3D78AC62E82DBBF00AED3D3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F3D78AC72E82DBBF00AED3D3 /* CineTrackUITests */,
-			);
-			name = CineTrackUITests;
-			packageProductDependencies = (
-			);
-			productName = CineTrackUITests;
-			productReference = F3D78AC42E82DBBF00AED3D3 /* CineTrackUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -223,10 +186,6 @@
 						CreatedOnToolsVersion = 16.4;
 					};
 					F3D78AB92E82DBBF00AED3D3 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = F3D78AAA2E82DBBB00AED3D3;
-					};
-					F3D78AC32E82DBBF00AED3D3 = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = F3D78AAA2E82DBBB00AED3D3;
 					};
@@ -253,7 +212,6 @@
 			targets = (
 				F3D78AAA2E82DBBB00AED3D3 /* CineTrack */,
 				F3D78AB92E82DBBF00AED3D3 /* CineTrackTests */,
-				F3D78AC32E82DBBF00AED3D3 /* CineTrackUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,13 +225,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3D78AB82E82DBBF00AED3D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F3D78AC22E82DBBF00AED3D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,13 +248,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3D78AC02E82DBBF00AED3D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -311,11 +255,6 @@
 			isa = PBXTargetDependency;
 			target = F3D78AAA2E82DBBB00AED3D3 /* CineTrack */;
 			targetProxy = F3D78ABB2E82DBBF00AED3D3 /* PBXContainerItemProxy */;
-		};
-		F3D78AC62E82DBBF00AED3D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F3D78AAA2E82DBBB00AED3D3 /* CineTrack */;
-			targetProxy = F3D78AC52E82DBBF00AED3D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -549,40 +488,6 @@
 			};
 			name = Release;
 		};
-		F3D78AD52E82DBBF00AED3D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q973G45C7S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ryan.CineTrackUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CineTrack;
-			};
-			name = Debug;
-		};
-		F3D78AD62E82DBBF00AED3D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q973G45C7S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ryan.CineTrackUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CineTrack;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -609,15 +514,6 @@
 			buildConfigurations = (
 				F3D78AD22E82DBBF00AED3D3 /* Debug */,
 				F3D78AD32E82DBBF00AED3D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F3D78AD42E82DBBF00AED3D3 /* Build configuration list for PBXNativeTarget "CineTrackUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F3D78AD52E82DBBF00AED3D3 /* Debug */,
-				F3D78AD62E82DBBF00AED3D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -653,6 +549,11 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F32C5FC32F7EDF0E00918BC9 /* NetworkComponent */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = NetworkComponent;
+		};
+		F36A22462F8D0C240021817F /* NetworkComponent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F32C5FC22F7EDF0E00918BC9 /* XCLocalSwiftPackageReference "Components/NetworkComponent" */;
 			productName = NetworkComponent;
 		};
 		F3C53C142E8AF90600DE014C /* Kingfisher */ = {

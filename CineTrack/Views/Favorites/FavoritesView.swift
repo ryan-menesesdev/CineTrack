@@ -25,7 +25,7 @@ struct FavoritesView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 16) {
                         ForEach(favorites) { favorite in
                             NavigationLink {
-                                ContentDetailView(vm: vm, productionId: favorite.id, preloadedProduction: favorite.toProduction())
+                                ContentDetailView(vm: vm, productionId: nil, preloadedProduction: favorite.toProduction())
                             } label: {
                                 VStack {
                                     ImageLoader(url: favorite.poster)

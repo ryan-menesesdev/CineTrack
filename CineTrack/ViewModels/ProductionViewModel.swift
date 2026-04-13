@@ -21,6 +21,7 @@ class ProductionViewModel {
     }
     
     func fetchProductionById(_ id: String) async {
+        selectedProduction = nil
         do {
             selectedProduction = try await repository.fetchById(id)
         }

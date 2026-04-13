@@ -8,11 +8,15 @@ import Foundation
 
 public struct FetchServicePackage {
     private let decoder = JSONDecoder()
+    private let session: URLSession
 
-    public init() {}
+    public init(session: URLSession = .shared) {
+        self.session = session
+    }
 
+    @available(macOS 10.15.0, *)
     public func fetch<T: Decodable>(_ type: T.Type, from url: URL) async throws -> T {
-        guard let (data, response) = try? await URLSession.shared.data(from: url) else {
+        guard let (data, response) = try? await session.data(from: url) else {
             throw FetchError.badDataError
         }
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
